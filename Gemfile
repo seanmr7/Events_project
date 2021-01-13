@@ -33,6 +33,11 @@ gem 'jbuilder', '~> 2.5'
 # Use devise for user authentication and login
 gem 'devise'
 
+
+# Use Bootstrap for front-end framework
+gem 'bootstrap', '~> 5.0.0.beta1'
+gem 'sassc', '~> 2.1.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
