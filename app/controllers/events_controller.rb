@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @event = @user.created_events.build( event_params )
-    @event.attendees << @user
+    @event.attendees << current_user
     if @event.save
       flash[:success] = "Event created"
       redirect_to root_path

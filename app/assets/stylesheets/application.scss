@@ -15,8 +15,21 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
-.list-group-item:last-child.attendee-list {
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
+.list-group-item:last-child.attendee-list, 
+.list-group-item:first-child.attendee-list {
+  border-right: 0;
+  border-left: 0;
+  border-radius: 0;
+}
+
+.event-listing {
+    background-color: white;
+}
+
+.home-page .well {
+  background-color: floralwhite;
+}
+
+.small-text {
+  font-size: .5em;
 }

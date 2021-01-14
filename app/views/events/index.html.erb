@@ -1,6 +1,33 @@
-<h1>Events!</h1>
-  <ul>
-    <% @events.each do |event| %>
-        <li><%= link_to "#{event.name}", user_event_path(user_id: event.event_creator_id, id: event.id) %></li>
-    <% end %>
-  </ul>
+<div class="container">
+  <div class="row">
+    <div class="well home-page">
+      <h1>Hello, here are some upcoming events!</h1>
+        <div class="row">
+          <% @events.each do |event| %>
+            <div class="col-md-2">
+              <div class="well event-listing text-center">
+                <%= link_to "#{event.name}", user_event_path(user_id: event.event_creator_id, id: event.id) %>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="well home-page">
+        <div>
+          <h1 display="inline-block;">Past Events<span class="small-text"><%= " (You're missing out on these great event, sign up now!)" unless user_signed_in? %></span></h1>
+        </div>  
+          <div class="row">
+            <% @events.each do |event| %>
+              <div class="col-md-2">
+                <div class="well event-listing text-center">
+                  <%= link_to "#{event.name}", user_event_path(user_id: event.event_creator_id, id: event.id) %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+      </div>
+    </div>
+</div>
