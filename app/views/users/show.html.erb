@@ -34,11 +34,11 @@
       <div class="well">
         <h1>Past Events</h1>
           <ul class="list-group">
-            <% @user.attended_events.each do |event| %>
-              <% if event.date > Time.now %>
-                <li class="list-group-item"><%= event.name %></li>
-              <% else %>
-                <li class="list-group-item">You have not attended any event!</li>
+            <% if @user.attended_events.nil? %>
+              <li class="list-group-item">You have not attended any event!</li>
+            <% else %>
+              <% @user.attended_events.each do |event| %>
+                <%= link_to "#{event.name}", user_event_path(user_id: @user.id), class: "list-group-item list-group-item-action" %>
               <% end %>
             <% end %>
           </ul>
