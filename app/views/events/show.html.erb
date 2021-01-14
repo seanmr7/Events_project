@@ -1,1 +1,20 @@
-<h1><%= @user.inspect %></h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="well">
+          <h1><%= @event.name %></h1>
+          <p><%= @event.description %></p>
+          <p><%= @event.date.strftime("%m/%d/%Y") %> | <%= link_to "Attend this event", attend_event_path %></p>
+      </div>
+    </div>
+    
+    <div class="col-md-3 offset-md-8">
+      <h1>Attendees</h1>
+      <ul class="list-group list-group-flush">
+        <% @event.attendees.each do |attendee| %>
+          <li class="list-group-item attendee-list"><%= attendee.name %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

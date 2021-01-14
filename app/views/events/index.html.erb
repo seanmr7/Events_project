@@ -1,6 +1,6 @@
 <h1>Events!</h1>
   <ul>
     <% @events.each do |event| %>
-      <li><%= event.name %></li>
+        <li><%= link_to "#{event.name}", user_event_path(user_id: event.event_creator_id, id: event.id) %></li>
     <% end %>
   </ul>

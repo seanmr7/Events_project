@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :users do
     resources :events, only: [:new, :create, :update, :destroy, :show]
   end
-  resources :events, only: [:index]
+  resources :events, only: [:index] do
+    member do
+      get "attend"
+    end
+  end
 end

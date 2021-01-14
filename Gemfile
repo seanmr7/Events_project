@@ -35,8 +35,8 @@ gem 'devise'
 
 
 # Use Bootstrap for front-end framework
-gem 'bootstrap', '~> 5.0.0.beta1'
-gem 'sassc', '2.1.0'
+gem 'bootstrap-sass', '~> 3.4.1'
+gem 'sassc-rails', '>= 2.1.0'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

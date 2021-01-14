@@ -1,8 +1,48 @@
 <div class="container">
-  <h1>user page</h1>
-  <ul>
-    <% @user.created_events.each do |event| %>
-      <li><%= event.name %></li>
-    <% end %>
-  </ul>
+  <div class="row">
+    
+    <div class="col-md-1">
+      <h3><%= @user.name %></h3>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="well">
+        <h1>Your Events</h1>
+        <ul class="list-group">
+          <% @user.created_events.each do |event| %>
+           <%= link_to "#{event.name}", user_event_path(user_id: @user.id), class: "list-group-item list-group-item-action" %>
+          <% end %>
+        </ul>
+        <%= link_to "Create an event", new_user_event_path(current_user.id) %>
+      </div>
+    </div>
+    
+    <div class="col-md-4 offset-md-5">
+      <div class="well">
+        <h1>Upcoming Events</h1>
+          <ul class="list-group">
+            <% @user.attended_events.each do |event| %>
+              <% if event.date < Time.now  %>
+                <%= link_to "#{event.name}", user_event_path(user_id: @user.id), class: "list-group-item list-group-item-action" %>
+              <% end %>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+    
+    <div class="col-md-3 offset-md-9">
+      <div class="well">
+        <h1>Past Events</h1>
+          <ul class="list-group">
+            <% @user.attended_events.each do |event| %>
+              <% if event.date > Time.now %>
+                <li class="list-group-item"><%= event.name %></li>
+              <% else %>
+                <li class="list-group-item">You have not attended any event!</li>
+              <% end %>
+            <% end %>
+          </ul>
+      </div>
+    </div>
+  </div>
 </div>
